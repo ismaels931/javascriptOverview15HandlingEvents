@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Web worker</title>
+	</head>
+	<body>
+		<p>Web worker</p>
+	</body>
+	<script type="text/javascript">
+		let squareWorker = new Worker("squareworker.js");
+		squareWorker.addEventListener("message", event => {
+			console.log("The worker responded: ", event.data);
+		});
+
+		squareWorker.postMessage(10);
+		squareWorker.postMessage(24);
+	</script>
+</html>
